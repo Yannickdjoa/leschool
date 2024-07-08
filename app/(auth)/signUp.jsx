@@ -5,8 +5,9 @@ import { images } from '../../constants';
 import CustomButton from '../../components/CustomButton';
 import { Link } from 'expo-router';
 
-const SignIn = () => {
+const SignUp = () => {
   const [form, setForm] = useState({
+    username: '',
     email: '',
     password: '',
   });
@@ -22,8 +23,14 @@ const SignIn = () => {
             resizeMode="contain"
           />
           <Text className="text-2xl text-white text-semibold mt-10 font-psemibold">
-            Login to Aora
+            Sign Up to Aora
           </Text>
+          <FormField
+            title="Username"
+            value={form.username}
+            handleChangeText={(e) => setForm({ ...form, username: e })}
+            otherStyles="mt-7"
+          />
           <FormField
             title="Email"
             value={form.email}
@@ -45,13 +52,13 @@ const SignIn = () => {
           />
           <View className="justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">
-              Dont have an account?
+              Have an account already?
             </Text>
             <Link
-              href="/signUp"
+              href="/signIn"
               className="text-lg font-psemibold text-secondary"
             >
-              Sign Up
+              Sign In
             </Link>
           </View>
         </View>
@@ -59,4 +66,4 @@ const SignIn = () => {
     </SafeAreaView>
   );
 };
-export default SignIn;
+export default SignUp;
